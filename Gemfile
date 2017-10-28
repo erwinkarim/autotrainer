@@ -68,3 +68,12 @@ gem 'dotenv-rails'
 
 #template system
 gem 'haml'
+
+#authentication
+gem 'devise'
+gem 'omniauth-facebook'
+
+#styling
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.12.3'
