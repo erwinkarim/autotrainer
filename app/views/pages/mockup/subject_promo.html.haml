@@ -1,0 +1,23 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-3.text-center Topic Title
+    %p.lead #{NameGenerator::LOREM}
+.container
+  .row
+    .col-12.mb-2
+      %h2.display-4.text-center Short Key Points
+      .card-deck
+        - (0..2).each do |key|
+          .card
+            .card-body
+              %h3.card-title.text-center Key Point #{key}
+              %p.card-text #{NameGenerator::LOREM.split.slice(0,rand(20)+20).join(' ')}
+            .card-footer.d-flex
+              %button.btn.btn-primary.mx-auto{ type:'button'} Learn More
+    .col-12.mb-2
+      %h2.display-4.text-center Famous Companies Who Use This
+      %p Logos should be here
+    .col-12
+      %h3.display-4.text-center Final thoughts
+      - (0..(rand(3))).each do |key|
+        %p.lead #{NameGenerator::LOREM}

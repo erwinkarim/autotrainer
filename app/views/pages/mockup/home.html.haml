@@ -1,0 +1,36 @@
+.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'height:100vh; background-image:url(http://eteam.zenfolio.com/img/v3/p148811772.gif);'}
+  .container.text-white
+    %h1.display-3 A Point Is Made
+    %p.lead #{ NameGenerator::LOREM}
+    .d-flex
+      %button.btn.btn-primary.mx-auto{ type:'button'} Learn More
+.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'height:100vh; background-image:url(http://www.andrewnourse.com/images/Rough_Walk_cycle_by_Yunyin.gif);'}
+  .container
+    %h1.display-3.text-center Another Point Is Made
+    %p.lead #{ NameGenerator::LOREM}
+    .d-flex
+      %button.btn.btn-primary.mx-auto{ type:'button'} Learn More
+.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'height:100vh; background-image:url(https://thumbs.gfycat.com/FlusteredCalmBergerpicard-max-1mb.gif);'}
+  .container.text-white
+    %h1.display-3.text-right The Final Point
+    %p.lead.text-right #{ NameGenerator::LOREM}
+    .d-flex
+      %button.btn.btn-primary.ml-auto{ type:'button'} Learn More
+.jumbotron.jumbrotron-fluid.mb-0
+  .container
+    .row
+      .col-12.col-md-4
+        .card
+          .card-body
+            %h2.card-title Point 1
+            %p.card-text.lead #{ NameGenerator.random_sentance }
+      .col-12.col-md-4
+        .card
+          .card-body
+            %h2.card-title Point 2
+            %p.card-text.lead #{ NameGenerator.random_sentance }
+      .col-12.col-md-4
+        .card
+          .card-body
+            %h2.card-title Point 3
+            %p.card-text.lead #{ NameGenerator.random_sentance }

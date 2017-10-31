@@ -1,0 +1,32 @@
+.container.mt-2
+  .row
+    .col-12
+  %ul.breadcrumb
+    %li.breadcrumb-item
+      %a{href:'#'} Home
+    %li.breadcrumb-item
+      %a{href:'#'} Topic
+    %li.breadcrumb-item.active Subject
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-3 Welcome to Subject !!!
+    %p.lead Something about TOC here
+.container
+  .row
+    .col-12
+      %h3.display-4 Executive Summary
+      %p.lead #{ NameGenerator::LOREM}
+    .col-12
+      %h3.display-4 Table of Contents
+      .card-columns
+        - (1..(rand(20) + 5)).each do |key|
+          .card
+            .card-body
+              %a{ href:'#'}
+                %h3.card-title  #{key}: #{ NameGenerator::LOREM.split.slice(rand(30),rand(3) + 3).join(' ').titleize}
+              %p.card-text #{ NameGenerator::LOREM.split.slice(rand(30), rand(5) + 5).join(' ')}
+    .col-12
+      %h2.display-4 Additional Resources
+      %ul
+        - (0..(rand(5))).each do |key|
+          %li #{ NameGenerator.random_sentance}

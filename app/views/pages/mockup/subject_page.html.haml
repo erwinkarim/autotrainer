@@ -1,0 +1,75 @@
+.container.mt-2
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'#'} Home
+        %li.breadcrumb-item
+          %a{href:'#'} Topic
+        %li.breadcrumb-item
+          %a{href:'#'} Subject
+        %li.breadcrumb-item.active Chapter X: Blah Blah, Blah Blah
+.jumbotron.jumbrotron-fluid
+  %h2.display-3 Chapter X: Something to say
+  %p.lead A something that you say about chapter X
+.container
+  .row
+    .col-12
+      %p.lead A demonstration of what each of the subject chapter should be taking about. The chapter will split into section, each has their drop down menu thing
+    .col-12.col-md-8
+      %h3.display-5 Normal Paragraph w/ quotes
+      %p.lead Show paragraphs w/ quotes inside it. #{ NameGenerator.random_sentance}
+      - (0..(rand(3)+1)).each do |para|
+        - if rand(10) == 1 then
+          .card.mb-2
+            .card-body
+              %blockquote.blockquote
+                %p #{NameGenerator.random_sentance}
+                %footer.blockquote-footer
+                  Someone famous
+                  %cite Source
+        - else
+          %p #{ (0..(rand(8)+3)).map{ |x| NameGenerator.random_sentance }.join }
+      %h3.display-5 Something with pictures
+      %p.lead Show a picture to highlight about the stuff
+      .card.mb-2
+        %img.card-img-top{ src:'http://www.screengeek.net/wp-content/uploads/2017/05/thor-ragnarok-marvel.png'}
+        .card-body
+          %p.card-text Talk about the image
+      %p #{ (0..(rand(1)+2)).map{ |x| NameGenerator.random_sentance }.join }
+      %h3.display-5 Maybe a video too
+      %p.lead Show a video to highlight about the stuff
+      .card
+        .embed-responsive.embed-responsive-16-by-9.card-img-top{ style:'height:300px'}
+          %iframe.card-img-top{src:"https://www.youtube.com/embed/WxfZkMm3wcg?rel=0", width:1600, frameborder:"0",allowfullscreen:true }
+        .card-body
+          %p.card-text Talk about the video above
+          %p.card-text #{ NameGenerator.random_sentance }
+      %p #{ (0..(rand(1)+2)).map{ |x| NameGenerator.random_sentance }.join }
+      %h3.display-5 Instructional accordion to explain things
+      %p.lead Show A step-by-step instruction using an accordion. #{ NameGenerator.random_sentance}
+      - random_id = SecureRandom.hex(6)
+      %div.mb-2{id:"accordion-#{random_id}"}
+        - (1..(rand(7)+3)).each do |step|
+          .card
+            .card-header
+              %h5.mb-0
+                %a{href:"#step-#{random_id}-#{step}", data:{toggle:'collapse'}} Step #{step}
+            .collapse{id:"step-#{random_id}-#{step}", class:"#{step==1 ? 'show' : ''}",  data:{parent:"#accordion-#{random_id}"} }
+              .card-body
+                - (1..(rand(3)+1)).each do |para|
+                  %p #{NameGenerator.random_sentance}
+      %p #{ (0..(rand(2)+1)).map{ |x| NameGenerator.random_sentance }.join }
+      %h3.display-5 A table really tell things up
+      %p.lead Show a table. #{NameGenerator.random_sentance}
+      - columns = rand(3) + 3
+      %table.table.table-striped.table-responsive
+        %thead
+          - (1..columns).each do |col|
+            %th Column #{col}
+        %tbody
+          - (1..(rand(5) + 5)).each do |row|
+            %tr
+              - (1..columns).each do |col|
+                %td #{ col == 1 ? "Row #{row}" : SecureRandom::hex(6) }
+      %p #{ (0..(rand(8)+3)).map{ |x| NameGenerator.random_sentance }.join }
