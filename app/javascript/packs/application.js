@@ -10,5 +10,9 @@
 console.log('Hello World from Webpacker')
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true)
+console.log(componentRequireContext.keys());
 var ReactRailsUJS = require("react_ujs")
 ReactRailsUJS.useContext(componentRequireContext)
+
+//somehow this doesn't automatically happen
+ReactRailsUJS.mountComponents()

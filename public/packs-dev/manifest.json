@@ -1,0 +1,5 @@
+{
+  "application.js": "http://localhost.localdomain:5001/packs-dev/application.js",
+  "hello_react.js": "http://localhost.localdomain:5001/packs-dev/hello_react.js",
+  "server_rendering.js": "http://localhost.localdomain:5001/packs-dev/server_rendering.js"
+}

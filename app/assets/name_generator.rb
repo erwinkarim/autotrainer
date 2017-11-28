@@ -28,9 +28,10 @@ module NameGenerator
     return "#{FIRST_NAME[rand(0..FIRST_NAME.length-1)]}#{LAST_NAME[rand(0..LAST_NAME.length-1)]}#{rand(1..3000)}@#{EMAIL_PROVIDER[rand(0..EMAIL_PROVIDER.length-1)]}"
   end
 
-  def self.random_sentance min = 5
-
-    return LOREM.split.slice(rand(30), rand(30) + min).join(' ').humanize
+  def self.random_sentance min = 5, max = 30
+    start_point = rand(30)
+    word_length = rand(min..max)
+    return LOREM.split[start_point..(start_point+word_length)].join(' ').humanize
   end
 
 end

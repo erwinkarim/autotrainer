@@ -3,23 +3,48 @@
     .col-12
       %h1 Mockup TOC
       %p Mock-up page test for design discussion
-      %h2 Home
+      %h2 System
       %ul
         %li
           %a{href:'/pages/mockup/home'} Home Mockup
+        %li
+          %a{href:'/pages/mockup/login'} Login
       %h2 Admin
       %ul
         %li
           %a{href:'/pages/mockup/admin_landing'} Admin Landing Mockup
         %li
           %a{href:'/pages/mockup/admin_page_editor'} Admin Page Editor
-      %h2 Subject(s)
+      %h2 Courses and Modules
       %ul
         %li
-          %a{href:'/pages/mockup/subject_promo'} Subject Promo
+          %a{href:'/pages/mockup/course_tag'} Course Tag
         %li
-          %a{href:'/pages/mockup/subject_toc'} Subject TOC
+          %a{href:'/pages/mockup/course_promo'} Course Promo
         %li
-          %a{href:'/pages/mockup/subject_page'} Subject Page
+          %a{href:'/pages/mockup/course_toc'} Course TOC
+        %li
+          %a{href:'/pages/mockup/module_article'} Module Page
+        %li
+          %a{href:'/pages/mockup/module_quiz'} Module Quiz
+      %h2 User Page
+      %ul
         %li
           %a{href:'/pages/mockup/user_landing'} User Landing
+        %li
+          %a{href:'/pages/mockup/course_builder'} Course Builder
+        %li
+          %a{href:'/pages/mockup/module_article_editor'} Article Module Editor
+        %li
+          %a{href:'/pages/mockup/module_quiz_editor'} Quiz Module Editor
+    .col-12
+      %h2 Data Stucture
+      %ul
+        %li Course -> Module -> (Aricles/Quiz)
+        %li Course linked and managed by unique User (content creators)
+        %li
+          Course can be linked by multiple tags
+          %ul
+            %li Tags are curated by site owner
+            %li User can link their modules to the tags, but must be approved by owner
+        %li Anybody can sign in, few can create content (for now)

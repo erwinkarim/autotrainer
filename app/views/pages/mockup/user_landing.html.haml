@@ -1,4 +1,60 @@
+.container.mt-2
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/home'} Home
+        %li.breadcrumb-item.active FirstName LastName
 .container
   .row
     .col-12
-      %h1 User Landing
+      %p.lead Welcome FirstName LastName,
+    .col-12.mb-3
+      %h4.display-5 Course Highlights
+      .card-deck
+        - (1..3).each do |course|
+          .card
+            %img.card-img-top{ src:'http://placehold.it/128x128'}
+            .card-body
+              %h4.display-5.text-center #{ NameGenerator::LOREM.split[0..(rand(2)+1)].join(' ')}
+              %p.card-text #{ NameGenerator.random_sentance }
+              %p.card-text RM34.99
+            .card-footer
+              %a.btn.btn-primary{href:'/pages/mockup/course_promo'} Learn More
+    .col-12
+      %h4.display-5 Courses you attended
+      %p Some gamification of the stuff you bought
+      - course_count = rand(10)
+      - if course_count.zero?
+        %p You haven't attent any courses yet.
+        %p
+          %a{ href:'#'} View courses
+      - else
+        .row
+          - (1..course_count).each do |course|
+            .col-12.col-md-3
+              .card.mb-2
+                .card-body
+                  %h4.display-5.card-title
+                    %a{href:'/pages/mockup/course_toc'} #{ NameGenerator::LOREM.split[rand(5)..(rand(2)+5)].join(' ').titleize}
+                  %p.card-text Page
+                  .progress.mb-2
+                    .progress-bar.bg-info{ style:"width:#{rand(100)}%"}
+                  %p.card-text Quiz
+                  .progress
+                    .progress-bar.bg-success{ style:"width:#{rand(100)}%"}
+    .col-12
+      %h4.display-5 Courses you manage
+      %p Applicable if you have admin access
+    .col-12.col-md-8
+      - (0..(rand(4))).each do |course|
+        .card.mb-3
+          .card-body
+            %h3.card-title #{ NameGenerator::LOREM.split[rand(5)..(rand(2)+5)].join(' ').titleize}
+            %p.card-text.lead #{(0..(rand(2)+1)).map{ |x| NameGenerator.random_sentance}.join(' ')}
+            %h4 Stats
+            %p Chapters: #{ rand(30) }, Quiz questions: #{ rand(30) }
+            %p Price: RM39.99
+            %p
+              %a.btn.btn-info{ href:'/pages/mockup/course_toc'} View Course
+              %a.btn.btn-primary{ href:'/pages/mockup/course_builder'} Edit

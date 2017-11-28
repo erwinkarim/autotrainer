@@ -1,0 +1,65 @@
+.container.mt-2
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/home'} Home
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/user_landing'} FirstName LastName
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/course_builder'} Course Editor
+        %li.breadcrumb-item.active Quiz Module Editor
+    .col-12.col-md-8
+      %h2 Quiz Editor
+      - (1..(rand(2) + 3)).each do |q|
+        .card.mb-2
+          .card-header
+            Question #{q}
+          .card-body
+            %p.card-text #{ NameGenerator.random_sentance} ?
+            - choice_name = SecureRandom.hex(6)
+            - (1..(rand(3) + 2)).each do |choice|
+              .form-check
+                %label.form-check-label
+                  %input.form-check-input{type:'radio', name:choice_name}
+                  #{ NameGenerator.random_sentance(3,5) }.
+                  - if choice == 2 then
+                    %span.text-success - Correct Answer
+          .card-footer
+            %button.btn.btn-primary{type:'button'} Edit
+            %button.btn.btn-danger{type:'button'} Delete
+      .card.mb-2
+        .card-header
+          Edit Question
+        .card-body
+          %p.card-text Question:
+          .form-group
+            %input.form-control{type:'text', placeholder:'Type question', value:NameGenerator.random_sentance}
+          - choice_name = SecureRandom.hex(6)
+          .row
+            .col-9 Potential answer:
+            .col-2 Correct answer
+          - (1..rand(3) + 2).each do |q|
+            .row.mb-1
+              .col-9
+                %input.form-control{type:'text', value:NameGenerator.random_sentance(2,5) }
+              .col-2
+                %input.form-check{type:'radio', name:choice_name, checked:q==2}
+              .col-1.px-0
+                %button.btn.btn-danger.btn-sm{type:'button'}
+                  %i.fa.fa-minus
+          .row.mb-1
+            .col-12
+              %button.btn.btn-info{type:'button'}
+                %i.fa.fa-plus
+        .card-footer
+          %button.btn.btn-primary{type:'button'} Update
+          %button.btn.btn-danger{type:'button'} Cancel
+    .col-12.col-md-8
+      .dropdown
+        %button.btn.btn-primary.dropdown-toggle{ type:'button', data:{toggle:'dropdown'}}
+          New Question
+        .dropdown-menu
+          %a.dropdown-item{href:'#'} Multiple Choice
+          %a.dropdown-item{href:'#'} Fill-in-blanks
+          %a.dropdown-item{href:'#'} Multiple Check

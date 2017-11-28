@@ -3,10 +3,10 @@
     .col-12
   %ul.breadcrumb
     %li.breadcrumb-item
-      %a{href:'#'} Home
+      %a{href:'/pages/mockup/home'} Home
     %li.breadcrumb-item
-      %a{href:'#'} Topic
-    %li.breadcrumb-item.active Subject
+      %a{href:'/pages/mockup/course_tag'} Course Tag
+    %li.breadcrumb-item.active Course Name
 .jumbotron.jumbotron-fluid
   .container
     %h1.display-3 Welcome to Subject !!!
@@ -20,10 +20,12 @@
       %h3.display-4 Table of Contents
       .card-columns
         - (1..(rand(20) + 5)).each do |key|
+          - popQuiz = 7  < rand(10)
           .card
             .card-body
-              %a{ href:'#'}
-                %h3.card-title  #{key}: #{ NameGenerator::LOREM.split.slice(rand(30),rand(3) + 3).join(' ').titleize}
+              %a{ href:popQuiz ? '/pages/mockup/module_quiz' : '/pages/mockup/module_article'}
+                %h3.card-title
+                  #{key} #{popQuiz ? '(Quiz)' : ''}: #{ NameGenerator::LOREM.split.slice(rand(30),rand(3) + 3).join(' ').titleize}
               %p.card-text #{ NameGenerator::LOREM.split.slice(rand(30), rand(5) + 5).join(' ')}
     .col-12
       %h2.display-4 Additional Resources

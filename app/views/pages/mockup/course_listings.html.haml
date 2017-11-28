@@ -1,0 +1,26 @@
+.jumbotron.jumbrotron-fluid.mb-0.background-setup
+  .container
+    %h1.display-3 To Infinity and Beyond!!!
+    %p.lead #{ NameGenerator::LOREM}
+.container.mt-3
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'#'} Home
+        %li.breadcrumb-item.active Courses
+    - (1..(rand(10+3))).each do |course|
+      .col-12.col-md-4
+        .card.mb-2
+          .card-body
+            %h2.card-title.text-center #{ NameGenerator::LOREM.split[0..(rand(2)+1)].join(' ').titleize}
+            %p.card-text.lead #{NameGenerator.random_sentance}
+            %ul
+              - (1..(rand(4)+2)).each do |subject|
+                %li
+                  %a{ href:'#'} #{ NameGenerator.random_sentance(2,5)}
+.jumbotron.jumbrotron-fluid.mb-0.background-setup
+  .container
+    %h1.display-3 Contribute to AutoTrainer
+    %p.lead #{ NameGenerator::LOREM}
+    %a.btn.btn-primary{href:'#'} Sign Up

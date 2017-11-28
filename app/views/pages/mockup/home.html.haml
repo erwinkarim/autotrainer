@@ -1,16 +1,25 @@
-.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'height:100vh; background-image:url(http://eteam.zenfolio.com/img/v3/p148811772.gif);'}
-  .container.text-white
+.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'min-height:100vh; background-image:url(http://futureofwork.my/clients/Future_of_Work_64CC2F9B-898C-4C00-822B-9EEA36B02753/contentms/img/bg.jpg)'}
+  #particles-js{ style:'min-height:100vh;width:100vw;position:absolute;'}
+  .container.text-white{style:'z-index:2'}
     %h1.display-3 A Point Is Made
     %p.lead #{ NameGenerator::LOREM}
     .d-flex
-      %button.btn.btn-primary.mx-auto{ type:'button'} Learn More
-.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'height:100vh; background-image:url(http://www.andrewnourse.com/images/Rough_Walk_cycle_by_Yunyin.gif);'}
+      %a.btn.btn-primary.mx-auto{href:'/pages/mockup/course_tag', style:'z-index:2;'} Learn More
+.container.mt-2
+  .row
+    - ['bnm.png', 'hsbc_amanah.gif', 'takaful_ikhlas.png', 'etiqa.png', 'liberty_insurance.png',
+      '7a603d_6d305286957b485db4d1148c7d4fcc02-mv2.webp', '7a603d_70c9ffa2ba1545eeb266efcf1c12ffda-mv2.webp',
+      '7a603d_816d303f34f04c5392ea492d67d756a3-mv2.webp', '7a603d_8640671a7acd4d56be7107289af6eb3b-mv2.webp',
+      'rhb.png', 'axa.png', '7a603d_61665b71f69e472d8cc57952922f0617-mv2.webp'].each do |image_src|
+      .col-3.col-md-2.mb-2
+        %img.img-fluid.image-grayscale{src:"/images/#{image_src}"}
+.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'min-height:100vh; background-position:center; background-image:url(https://78.media.tumblr.com/53048fa636eeecf421eaf7dca288d864/tumblr_msgeircJTy1sdcmlvo1_500.gif)'}
   .container
     %h1.display-3.text-center Another Point Is Made
     %p.lead #{ NameGenerator::LOREM}
     .d-flex
-      %button.btn.btn-primary.mx-auto{ type:'button'} Learn More
-.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'height:100vh; background-image:url(https://thumbs.gfycat.com/FlusteredCalmBergerpicard-max-1mb.gif);'}
+      %a.btn.btn-primary.mx-auto{href:'/pages/mockup/course_tag'} Learn More
+.jumbotron.jumbrotron-fluid.mb-0.background-setup{ style:'min-height:100vh; background-position:center; background-image:url(https://thumbs.gfycat.com/FlusteredCalmBergerpicard-max-1mb.gif);'}
   .container.text-white
     %h1.display-3.text-right The Final Point
     %p.lead.text-right #{ NameGenerator::LOREM}
@@ -18,19 +27,18 @@
       %button.btn.btn-primary.ml-auto{ type:'button'} Learn More
 .jumbotron.jumbrotron-fluid.mb-0
   .container
+    %h3.display-4.text-center Featured Courses
     .row
-      .col-12.col-md-4
-        .card
-          .card-body
-            %h2.card-title Point 1
-            %p.card-text.lead #{ NameGenerator.random_sentance }
-      .col-12.col-md-4
-        .card
-          .card-body
-            %h2.card-title Point 2
-            %p.card-text.lead #{ NameGenerator.random_sentance }
-      .col-12.col-md-4
-        .card
-          .card-body
-            %h2.card-title Point 3
-            %p.card-text.lead #{ NameGenerator.random_sentance }
+      - (1..3).each do |course|
+        .col-12.col-md-4
+          .card.mb-3
+            .card-body
+              %h2.card-title Course #{course}
+              %p.card-text.lead #{ NameGenerator.random_sentance }
+            .card-footer.d-flex
+              %a.btn.btn-primary.mx-auto{href:'/pages/mockup/course_tag'} Learn More
+- content_for(:other_js) do
+  :javascript
+    particlesJS.load('particles-js', '/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });

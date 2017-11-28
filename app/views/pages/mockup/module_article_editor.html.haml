@@ -1,0 +1,20 @@
+.container.mt-2
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/home'} Home
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/user_landing'} FirstName LastName
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/course_builder'} Course Editor
+        %li.breadcrumb-item.active Article Module Editor
+  .row
+    .col-12
+      %h3 Article Module Builder
+      %p put the WYSIWYG editor here (later)
+      .form-group
+        %textarea.form-control{rows:25, placeholder:'Start typing ...'}
+      .form-group
+        %button.btn.btn-primary{type:'button'} Update
+        %button.btn.btn-danger{type:'button'} Cancel

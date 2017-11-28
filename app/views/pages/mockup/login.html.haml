@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-12.col-md-8
+      %h4.display-4 Login
+      .card
+        .card-body
+          %p.card-text
+            %a.btn.btn-secondary.btn-block{href:'#'}
+              Login with
+              %i.fa.fa-google.fa-2x
+            %a.btn.btn-secondary.btn-block{href:'#'}
+              Login with
+              %i.fa.fa-facebook-square.fa-2x
+            %a.btn.btn-secondary.btn-block{href:'#'}
+              Login with
+              %i.fa.fa-twitter-square.fa-2x
+          %hr
+          %p.card-text
+            %form{action:'#', method:'get'}
+              .form-group
+                %input.form-control{ type:'text', placeholder:'email@example.com'}
+              .form-group
+                %input.form-control{ type:'password', placeholder:'password'}
+              .form-check
+                %label.form-check-label
+                  %input.form-check-input{type:'checkbox'}
+                  Remember Me
+    .col-12
+      %p
+        %a{href:'#'} Forgot password?
+      %p
+        %a{href:'#'} Sign Up

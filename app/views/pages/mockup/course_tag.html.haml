@@ -1,0 +1,34 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-3.text-center Course Tag Title
+    %p.lead #{NameGenerator::LOREM}
+.container
+  .row
+    .col-12.mb-2
+      %h2.display-4.text-center Subjects offered
+      .card-columns
+        - (1..(rand(5)+2)).each do |key|
+          .card
+            .card-body
+              %h3.card-title.text-center Subject #{key}
+              %p.card-text #{NameGenerator::LOREM.split.slice(0,rand(20)+20).join(' ')}
+              %h4 Who should attend
+              %ul
+                - (1..(rand(4)+1)).each do |target_market|
+                  %li #{ NameGenerator.random_sentance(3,7)}
+              %h4 Pricing
+              %p.card-text RM39.99
+            .card-footer.d-flex
+              %a.btn.btn-primary.mx-auto{ href:'/pages/mockup/course_promo'} Learn More
+    .col-12.mb-2
+      %h2.display-4.text-center Famous Companies Who Use This
+    - ['bnm.png', 'hsbc_amanah.gif', 'takaful_ikhlas.png', 'etiqa.png', 'liberty_insurance.png',
+      '7a603d_6d305286957b485db4d1148c7d4fcc02-mv2.webp', '7a603d_70c9ffa2ba1545eeb266efcf1c12ffda-mv2.webp',
+      '7a603d_816d303f34f04c5392ea492d67d756a3-mv2.webp', '7a603d_8640671a7acd4d56be7107289af6eb3b-mv2.webp',
+      'rhb.png', 'axa.png', '7a603d_61665b71f69e472d8cc57952922f0617-mv2.webp'].each do |image_src|
+      .col-6.col-md-2.mb-2
+        %img.img-fluid.image-grayscale{src:"/images/#{image_src}"}
+    .col-12
+      %h3.display-4.text-center Final thoughts
+      - (0..(rand(3))).each do |key|
+        %p.lead #{NameGenerator::LOREM}

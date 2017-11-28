@@ -1,0 +1,60 @@
+.container.mt-2
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/home'} Home
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/course_tag'} Course Tag
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/course_toc'} Course Name
+        %li.breadcrumb-item.active Module X: (Quiz) Lorem Ipsum
+  .row
+    .col-12
+      .card-deck
+        .card
+          .card-body
+            %h2.card-title.text-center Inline Style
+            %a.card-link.btn.btn-primary.text-center{href:'#inline'} View
+        .card
+          .card-body
+            %h2.card-title.text-center Carousel Style
+            %a.card-link.btn.btn-primary.text-center{href:'#carousel'} View
+    .col-12.col-md-8.mt-3#inline
+      %h2.display-4 Inline Style
+      - (1..(rand(5) + 5)).each do |q|
+        .card.mb-3
+          .card-body
+            %p.card-text
+              %strong Question #{q}:
+            %p.lead.card-text #{NameGenerator.random_sentance} ?
+            - random_id = SecureRandom.hex(6)
+            - (0..(rand(2)+2)).each do |selection|
+              .form-check
+                %label.form-check-label
+                  %input.form-input{type:'radio', name:"answer-#{random_id}", value:selection}
+                  #{NameGenerator::LOREM.split[rand(20)]}
+      %p
+        %button.btn.btn-primary{type:'button'} Submit Answer
+        %a.btn.btn-secondary{href:'#inline'} Do Over
+    .col-12
+      %h2.display-4 Carousel Style
+      %p TODO: make the next quesiton button actually work
+.jumbotron.jumbrotron-fluid#carousel{style:'min-height:100vh'}
+  .container#carousel-example
+    .carousel.slide{data:{ride:'carousel'}}
+      - q_count = rand(3)+3
+      .carousel-inner
+        - (0..q_count).each do |q|
+          .carousel-item{ class:"#{q==1?'active':''}"}
+            .card
+              .card-body
+                %p.lead.card-text #{NameGenerator.random_sentance}?
+                - random_id = SecureRandom.hex(6)
+                - (0..(rand(2)+2)).each do |selection|
+                  .form-check
+                    %label.form-check-label
+                      %input.form-input{type:'radio', name:"answer-#{random_id}", value:selection}
+                      #{NameGenerator::LOREM.split[rand(20)]}
+                %p.card-text
+                  %a.btn.btn-primary{href:'#carousel-example', data:{slide:'next'}} Next Question

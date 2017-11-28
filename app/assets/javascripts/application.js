@@ -14,4 +14,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require particles.min.js
 //= require_tree .

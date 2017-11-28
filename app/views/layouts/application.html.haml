@@ -1,25 +1,30 @@
 !!!!
 %html{lang:'eng'}
   %head
-    %title AutoTrainer
+    %title #{ yield :head } AutoTrainer
     %meta{charset:'utf-8'}
     %meta{name:'viewport', content:'width=device-width', 'intial-scale':1, 'shirk-to-fit':'no'}
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media:'all'
-    = javascript_include_tag 'application'
-    = javascript_pack_tag 'application'
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
       %a.navbar-brand{href:root_path} AutoTrainer
       %button.navbar-toggler{type:'button', data:{toggle:'collapse', target:'#navbar-menu'}}
+        %span.navbar-toggler-icon
       #navbar-menu.collapse.navbar-collapse
         %ur.navbar-nav.mr-auto
           %li.nav-item.active
             %a.nav-link{href:root_path} Home
+          %li.nav-item
+            %a.nav-link{href:'#'} Legal
     %div{ style:'min-height:90vh'}
       = yield
-    %nav.navbar.navbar-light.bg-light
-      %a.navbar-brand AutoTrainer
-      %a{href:'#'} Legal
-      %a{href:'#'} About
-      Copyright 2017
+    %footer.footer.text-muted
+      .container
+        %p
+          &copy; AutoTrainer 2017
+          &#8226; #{link_to 'Legal', page_path('legal')}
+          &#8226; #{link_to 'About', page_path('about')}
+    = javascript_include_tag 'application', {'data-turbolinks-tag':'true'}
+    = javascript_pack_tag 'application'
+    = yield :other_js

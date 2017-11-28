@@ -1,0 +1,36 @@
+.container.mt-2
+  .row
+    .col-12
+  %ul.breadcrumb
+    %li.breadcrumb-item
+      %a{href:'/pages/mockup/home'} Home
+    %li.breadcrumb-item
+      %a{href:'/pages/mockup/course_tag'} Course Tag
+    %li.breadcrumb-item
+      %a{href:'/pages/mockup/course_promo'} Course Name
+    %li.breadcrumb-item.active Course Name Sign Up
+  .row
+    .col-12.col-md-8
+      %ul
+        %li Checks if open to public
+        %li checks if need to pay
+        %li Show CC form is need to pay and logged in
+        %li
+          Skip to
+          %a{href:'/pages/mockup/course_toc'} course TOC
+          if no need to pay.
+      .card
+        .card-header
+          %h2 Course Sign Up Form
+        .card-body
+          .form-group
+            %label Name on Credit Card
+            %input.form-control{type:'text'}
+          .form-group
+            %label Credit Card Number
+            %input.form-control{type:'text'}
+          .form-group
+            %label CCV
+            %input.form-control{type:'text'}
+        .card-footer
+          %button.btn.btn-primary{type:'button'} Sign Up

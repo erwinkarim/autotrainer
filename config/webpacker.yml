@@ -23,6 +23,7 @@ default: &default
 
 development:
   <<: *default
+  public_output_path: packs-dev
 
   dev_server:
     host: localhost.localdomain

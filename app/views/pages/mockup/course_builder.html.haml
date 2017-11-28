@@ -1,0 +1,107 @@
+.container.mt-2
+  .row
+    .col-12
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/home'} Home
+        %li.breadcrumb-item
+          %a{href:'/pages/mockup/user_landing'} FirstName LastName
+        %li.breadcrumb-item.active Course Builder
+  .row
+    .col-12
+      %h3.display-4 Settings
+    .col-12.col-md-8
+      %ul.nav.nav-tabs.mb-2{role:'tablist'}
+        %li.nav-item
+          %a.nav-link.active{href:'#settings-general', role:'tab',  data:{toggle:'tab'}} General
+        %li.nav-item
+          %a.nav-link{href:'#settings-stats', role:'tab',  data:{toggle:'tab'}} Stats
+        %li.nav-item
+          %a.nav-link{href:'#settings-users', role:'tab',  data:{toggle:'tab'}} Users
+      .tab-content
+        .tab-pane.fade.show.active#settings-general
+          .form-group
+            %label Name
+            %input.form-control{type:'text', placeholder:'Course Name', value:NameGenerator.random_sentance(4,8)}
+          .form-group
+            %label Description
+            %textarea.form-control{rows:20}
+              - (1..3).each do |para|
+                %p
+                  = NameGenerator::LOREM
+          .form-group
+            %label Price
+            .input-group
+              %span.input-group-addon RM
+              %input.form-control{type:'number', min:1, max:10000, step:0.01, placeholder:'39.99', value:39.99}
+            %small.form-text.text-muted Must be between RM1 and RM10,000
+        .tab-pane.fade#settings-stats
+          %h4.display-4 User Stats
+          %ul
+            %li Distributed: #{ rand(500) + 40} users
+            %li Started: #{ rand(500) + 40} users
+            %li Finished: #{ rand(500) + 40} users
+        .tab-pane.fade#settings-users
+          %table.table
+            %thead
+              %tr
+                %th No
+                %th User
+                %th Status
+                %th Action
+
+            %tbody
+              - (1..(rand(20) + 4)).each do |target_user|
+                %tr
+                  %td #{target_user}
+                  %td #{NameGenerator.random_username} (#{NameGenerator.random_email})
+                  %td #{['Distributed', 'Signed Up', 'Started', 'Finished & Certified'][rand(3)]}
+                  %td
+                    .dropdown
+                      %button.btn.btn-secondary{type:'button', data:{toggle:'dropdown'}}
+                        %i.fa.fa-toggle-down
+                      .dropdown-menu
+                        .dropdown-item
+                          %a{href:'#'}
+                            %i.fa.fa-envelope
+                            Resend Mail
+                        .dropdown-item
+                          %a{href:'#'}
+                            %i.fa.fa-question-circle
+                            Review Quiz
+          %p
+            %button.btn.btn-info{type:'button'} Send Invites
+  .row
+    .col-12
+      %h3.display-4 Content Manager
+    .col-12.col-md-8
+      #content-accordion
+        - (1..(rand(5)+3)).each do |target_module|
+          - isQuiz = 8 < rand(10)
+          .card.mb-2
+            .card-header
+              %a{ href:"#collapse-#{target_module}", data:{toggle:'collapse'}}
+                #{target_module}: #{isQuiz ? '(Quiz)' : ''} #{NameGenerator.random_sentance(3,5)}
+            .collapse{ class:"#{target_module==1 ? 'show':''}", id:"collapse-#{target_module}", data:{parent:'#content-accordion'}}
+              .card-body
+                - if isQuiz then
+                  %ul
+                    %li Questions: #{rand(20) + 5}
+                    %li Style: #{ rand(5) > 5 ? 'Inline' : 'Carousel'}
+                  %a.btn.btn-primary{href:'/pages/mockup/module_quiz'} View Quiz
+                  %a.btn.btn-info{href:"/pages/mockup/module_quiz_editor"} Edit Quiz
+                - else
+                  %h4.card-title Stats
+                  %ul
+                    %li Paragraphs: #{rand(10) + 2}
+                    %li Word Count: #{rand(20000) + 200}
+                    %li Pictures: #{rand(10)}
+                    %li Videos: #{rand(10)}
+                    %li Tables: #{rand(5)}
+                    %li Estimate read time: #{rand(5) + 2} minutes
+                  %h4.card-title Preview
+                  %p.lead #{NameGenerator::LOREM}
+                  %p.card-text #{NameGenerator::LOREM}
+                  %p.card-text ...
+                  %a.btn.btn-primary{href:"/pages/mockup/module_article"} View Article
+                  %a.btn.btn-info{href:"/pages/mockup/module_article_editor"} Edit Article

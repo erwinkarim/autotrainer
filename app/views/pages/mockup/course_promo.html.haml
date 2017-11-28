@@ -1,0 +1,41 @@
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-3.text-center Course Title
+    %p.lead #{NameGenerator::LOREM}
+.container
+  .row
+    .col-12.mb-2
+      %h2.display-4.text-center Short Key Points
+      .card-deck
+        - (1..3).each do |key|
+          .card
+            .card-body
+              %h3.card-title.text-center Key Point #{key}
+              %p.card-text #{NameGenerator::LOREM.split.slice(0,rand(20)+20).join(' ')}
+            .card-footer.d-flex
+              %button.btn.btn-primary.mx-auto{ type:'button'} Learn More
+    .col-12.mb-2
+      %h2.display-4.text-center Recent Customers
+    - ['bnm.png', 'hsbc_amanah.gif', 'takaful_ikhlas.png', 'etiqa.png', 'liberty_insurance.png',
+      '7a603d_6d305286957b485db4d1148c7d4fcc02-mv2.webp', '7a603d_70c9ffa2ba1545eeb266efcf1c12ffda-mv2.webp',
+      '7a603d_816d303f34f04c5392ea492d67d756a3-mv2.webp', '7a603d_8640671a7acd4d56be7107289af6eb3b-mv2.webp',
+      'rhb.png', 'axa.png', '7a603d_61665b71f69e472d8cc57952922f0617-mv2.webp'].each do |image_src|
+      .col-6.col-md-2.mb-2
+        %img.img-fluid.image-grayscale{src:"/images/#{image_src}"}
+.jumbotron.jumbotron-fluid
+  .container
+    %h1.display-3.text-center Pricing
+    %p.lead.text-center Just RM39.99 !!
+    .d-flex
+      %a.btn.btn-primary.mx-auto{href:'/pages/mockup/course_sign_up'} Get Started!
+.container
+  .row
+    .col-12
+      %h3.display-4.text-center Final thoughts
+      - (0..(rand(3))).each do |key|
+        %p.lead #{NameGenerator::LOREM}
+      %p
+        Tags:
+        - (0..(rand(1..5))).each do |tag|
+          %a{href:'/pages/mockup/course_tag'}
+            %span.badge.badge-secondary #{ NameGenerator.random_sentance(2,4)}
